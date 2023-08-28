@@ -1,0 +1,19 @@
+def Lectura():
+  $ 1 "Programa de robot"
+  $ 2 "socket_open('10.5.10.2',6559,'pc')"
+  socket_open("10.5.10.2",6559,"pc")
+  while (True):
+    $ 3 "freedrive_mode()"
+    freedrive_mode()
+    while (True):
+      $ 4 "p≔get_actual_joint_positions()"
+      global p= get_actual_joint_positions ()
+      $ 5 "pos≔to_str(p)"
+      global pos=to_str(p)
+      $ 6 "socket_send_line(pos,'pc')"
+      socket_send_line(pos,"pc")
+      $ 7 "Esperar: 0.01"
+      sleep(0.01)
+    end
+  end
+end
